@@ -8,7 +8,7 @@ FluentRules is a lightweight, expressive validation library for Java inspired by
 - Built-in validators for common scenarios (`NotEmpty`, `Email`, `GreaterThan`, `LessThan`, `Length`, etc.)
 - Conditional validation with `When`, `Unless`, and `OnlyIf`
 - Support for custom `Must` validators with rich error messages
-- Nested object and collection validation via `SetValidator` and `RuleForEach`
+- Nested object validation via `SetValidator` and collection validation via `SetElementValidator`
 - Reusable validator classes through `AbstractValidator` inheritance
 - Aggregated `ValidationResult` with all errors
 - Zero runtime dependencies and Java 17 compatible
@@ -83,7 +83,7 @@ RuleFor(User::getPassword)
 
 ```java
 RuleForEach(User::getOrders)
-    .SetValidator(new OrderValidator());
+    .SetElementValidator(new OrderValidator());
 ```
 
 ## Examples

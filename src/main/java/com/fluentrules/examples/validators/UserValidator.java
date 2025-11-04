@@ -20,7 +20,7 @@ public class UserValidator extends AbstractValidator<User> {
             .SetValidator(new AddressValidator());
 
         RuleForEach(User::getOrders)
-            .SetValidator(new OrderValidator());
+            .SetElementValidator(new OrderValidator());
 
         RuleFor(User::getEmail)
             .When(user -> user.getAge() != null && user.getAge() < 25, builder ->

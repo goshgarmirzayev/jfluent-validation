@@ -40,7 +40,7 @@ class CollectionValidatorTest {
 
     static class ContainerValidator extends AbstractValidator<Container> {
         ContainerValidator() {
-            RuleForEach(Container::getItems).SetValidator(new ItemValidator());
+            RuleForEach(Container::getItems).SetElementValidator(new ItemValidator());
         }
     }
 
