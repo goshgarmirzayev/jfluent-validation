@@ -42,7 +42,9 @@ public class RuleBuilder<T, TProperty> {
     }
 
     public RuleBuilder<T, TProperty> Email() {
-        rule.addValidator(new EmailValidator<>());
+        @SuppressWarnings("unchecked")
+        PropertyValidator<T, TProperty> validator = (PropertyValidator<T, TProperty>) new EmailValidator<>();
+        rule.addValidator(validator);
         return this;
     }
 
@@ -57,7 +59,9 @@ public class RuleBuilder<T, TProperty> {
     }
 
     public RuleBuilder<T, TProperty> Length(int min, int max) {
-        rule.addValidator(new LengthValidator<>(min, max));
+        @SuppressWarnings("unchecked")
+        PropertyValidator<T, TProperty> validator = (PropertyValidator<T, TProperty>) new LengthValidator<>(min, max);
+        rule.addValidator(validator);
         return this;
     }
 

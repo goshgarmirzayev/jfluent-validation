@@ -86,19 +86,41 @@ RuleForEach(User::getOrders)
     .SetElementValidator(new OrderValidator());
 ```
 
+## Architecture Overview
+
+FluentRules is organised into three logical layers to keep the API modular and approachable:
+
+1. **Core DSL (`com.fluentrules.core`)** – orchestrates rule composition, conditional execution, and validation context state. `AbstractValidator` exposes the fluent API while `PropertyRule`, `ValidationResult`, and `ValidationContext` manage execution.
+2. **Validators (`com.fluentrules.validators`)** – reusable, focused validators for common predicates such as string emptiness, comparison, collection traversal, and predicate-based checks.
+3. **Examples (`com.fluentrules.examples`)** – sample models and validators that demonstrate best practices for composing complex validators, nested structures, and conditional logic.
+
+This layout mirrors how FluentValidation separates rule declaration from validator implementations, making it straightforward to extend or replace individual pieces.
+
 ## Examples
 
 The `examples` module contains runnable samples demonstrating validation of `User`, `Address`, and `Order` models.
 
 ## Running Tests
 
+In restricted environments the project ships with a lightweight harness so you can execute the full test suite without contacting Maven Central:
+
 ```bash
-mvn test
+./scripts/run-tests.sh
+```
+
+When network access is available you can rely on the official Maven build, including the full JUnit Jupiter runtime:
+
+```bash
+mvn -B test
 ```
 
 ## Extending
 
 Implement the `PropertyValidator` interface to create your own reusable validators and plug them into the fluent DSL via `RuleBuilder`.
+
+## Releasing to Maven Central
+
+Project maintainers can follow the [publishing guide](docs/PUBLISHING.md) for a step-by-step walkthrough covering prerequisite tooling, version management, testing, and deployment to Sonatype OSSRH.
 
 ## License
 

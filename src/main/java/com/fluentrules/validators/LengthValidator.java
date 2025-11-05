@@ -2,7 +2,7 @@ package com.fluentrules.validators;
 
 import com.fluentrules.context.ValidationContext;
 
-public class LengthValidator<T> extends AbstractPropertyValidator<T, CharSequence> {
+public class LengthValidator<T, TProperty extends CharSequence> extends AbstractPropertyValidator<T, TProperty> {
     private final int min;
     private final int max;
 
@@ -16,7 +16,7 @@ public class LengthValidator<T> extends AbstractPropertyValidator<T, CharSequenc
     }
 
     @Override
-    protected boolean isValid(CharSequence value, ValidationContext<T> context, String propertyPath) {
+    protected boolean isValid(TProperty value, ValidationContext<T> context, String propertyPath) {
         if (value == null) {
             return true;
         }
