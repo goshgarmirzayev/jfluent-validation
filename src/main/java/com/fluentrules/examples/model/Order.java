@@ -2,6 +2,11 @@ package com.fluentrules.examples.model;
 
 import java.math.BigDecimal;
 
+/**
+ * Simple order aggregate used in examples to demonstrate nested validation scenarios.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class Order {
     private String id;
     private BigDecimal total;

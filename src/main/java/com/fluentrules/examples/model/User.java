@@ -3,6 +3,11 @@ package com.fluentrules.examples.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Example domain entity representing a user with associated address and orders.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class User {
     private String email;
     private Integer age;

@@ -3,10 +3,21 @@ package com.fluentrules.core;
 import java.lang.invoke.SerializedLambda;
 import java.lang.reflect.Method;
 
+/**
+ * Utility methods for working with lambda expressions used in rule configuration.
+ *
+ * @author Goshgar Mirzayev
+ */
 final class LambdaUtils {
     private LambdaUtils() {
     }
 
+    /**
+     * Attempts to resolve the property name targeted by the provided lambda expression.
+     *
+     * @param lambda property accessor lambda captured by {@link PropertyFunction}
+     * @return inferred property name
+     */
     static String resolvePropertyName(PropertyFunction<?, ?> lambda) {
         try {
             Method writeReplace = lambda.getClass().getDeclaredMethod("writeReplace");

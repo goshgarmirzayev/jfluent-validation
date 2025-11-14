@@ -8,13 +8,21 @@ import com.fluentrules.core.ValidationStatus;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
+/**
+ * Delegates validation to another {@link AbstractValidator} allowing nested object graphs to be validated.
+ *
+ * @param <T> type of the parent object containing the nested property
+ * @param <TProperty> nested property type validated by the wrapped validator
+ * @author Goshgar Mirzayev
+ */
 public class SetValidator<T, TProperty> extends AbstractPropertyValidator<T, TProperty> {
     private final AbstractValidator<TProperty> validator;
 
     public SetValidator(AbstractValidator<TProperty> validator) {
         super("Nested validation failed");
-        this.validator = java.util.Objects.requireNonNull(validator, "validator");
+        this.validator = Objects.requireNonNull(validator, "validator");
     }
 
     @Override

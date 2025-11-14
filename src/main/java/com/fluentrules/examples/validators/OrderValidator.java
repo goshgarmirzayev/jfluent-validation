@@ -5,6 +5,11 @@ import com.fluentrules.examples.model.Order;
 
 import java.math.BigDecimal;
 
+/**
+ * Illustrates rules for validating {@link Order} aggregates in the sample domain.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class OrderValidator extends AbstractValidator<Order> {
     public OrderValidator() {
         RuleFor(Order::getId)

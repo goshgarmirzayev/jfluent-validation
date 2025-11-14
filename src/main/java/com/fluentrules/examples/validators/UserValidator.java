@@ -3,6 +3,11 @@ package com.fluentrules.examples.validators;
 import com.fluentrules.core.AbstractValidator;
 import com.fluentrules.examples.model.User;
 
+/**
+ * Example validator showcasing a wide range of rules for the {@link User} entity.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class UserValidator extends AbstractValidator<User> {
     public UserValidator() {
         RuleFor(User::getEmail)

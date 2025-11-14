@@ -4,6 +4,13 @@ import com.fluentrules.context.ValidationContext;
 
 import java.util.Collection;
 
+/**
+ * Ensures a property contains at least one element or character depending on its type.
+ *
+ * @param <T> type of the root object being validated
+ * @param <TProperty> property type
+ * @author Goshgar Mirzayev
+ */
 public class NotEmptyValidator<T, TProperty> extends AbstractPropertyValidator<T, TProperty> {
     public NotEmptyValidator() {
         super("Value must not be empty");

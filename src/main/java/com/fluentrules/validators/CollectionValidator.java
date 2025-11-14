@@ -11,9 +11,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Applies a nested validator to each element within a collection property and aggregates the results.
+ *
+ * @param <T> parent type containing the collection
+ * @param <TElement> element type inside the collection
+ * @author Goshgar Mirzayev
+ */
 public class CollectionValidator<T, TElement> implements PropertyValidator<T, Iterable<TElement>> {
     private final AbstractValidator<TElement> elementValidator;
 
+    /**
+     * @param elementValidator validator applied to each element. Must not be {@code null}.
+     */
     public CollectionValidator(AbstractValidator<TElement> elementValidator) {
         this.elementValidator = Objects.requireNonNull(elementValidator, "elementValidator");
     }
