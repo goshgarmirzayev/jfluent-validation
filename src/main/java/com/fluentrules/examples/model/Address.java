@@ -1,5 +1,10 @@
 package com.fluentrules.examples.model;
 
+/**
+ * Sample address model used by the example application.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class Address {
     private String street;
     private String city;

@@ -2,15 +2,19 @@ package com.fluentrules.validators;
 
 import com.fluentrules.context.ValidationContext;
 
+/**
+ * Ensures a character sequence has a length within the provided inclusive range.
+ *
+ * @param <T> type of the root object being validated
+ * @param <TProperty> property type (must implement {@link CharSequence})
+ * @author Goshgar Mirzayev
+ */
 public class LengthValidator<T, TProperty extends CharSequence> extends AbstractPropertyValidator<T, TProperty> {
     private final int min;
     private final int max;
 
     public LengthValidator(int min, int max) {
         super("Length must be between " + min + " and " + max);
-        if (min < 0 || max < min) {
-            throw new IllegalArgumentException("Invalid length range");
-        }
         this.min = min;
         this.max = max;
     }

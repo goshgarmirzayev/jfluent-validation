@@ -3,6 +3,11 @@ package com.fluentrules.examples.validators;
 import com.fluentrules.core.AbstractValidator;
 import com.fluentrules.examples.model.Address;
 
+/**
+ * Demonstrates validation rules for the {@link Address} model used in the sample application.
+ *
+ * @author Goshgar Mirzayev
+ */
 public class AddressValidator extends AbstractValidator<Address> {
     public AddressValidator() {
         RuleFor(Address::getStreet)

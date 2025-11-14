@@ -8,10 +8,18 @@ import com.fluentrules.examples.validators.UserValidator;
 
 import java.math.BigDecimal;
 
+/**
+ * Simple console application demonstrating how to compose validators with JFluent Validation.
+ *
+ * @author Goshgar Mirzayev
+ */
 public final class ExampleApp {
     private ExampleApp() {
     }
 
+    /**
+     * Entry point for the demo application.
+     */
     public static void main(String[] args) {
         Address address = new Address("1 Main St", "", "123", "US");
         User user = new User("", 17, address);
